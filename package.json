@@ -4,10 +4,11 @@
   "description": "Loads data from normalizer to database.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,12 @@
   },
   "homepage": "https://github.com/wchen02/loader#readme",
   "devDependencies": {
+    "eslint": "^6.1.0",
     "generate-changelog": "^1.8.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "jsonfile": "^5.0.0",
+    "mysql": "^2.17.1"
   }
 }
