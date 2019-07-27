@@ -1,6 +1,10 @@
 const jsonfile = require('jsonfile');
 const dotenv = require('dotenv');
 const log = require('loglevel');
+const { promisify } = require('util')
+const fs = require('fs')
+
+const DATA_DIR = 'data/';
 
 async function openFile(filename) {
     log.info(`Reading ${ filename }`);
@@ -78,7 +82,8 @@ async function insertInfo(knex, dataJson) {
         cate_id: dataJson.cate_id,
         city_id: dataJson.city_id,
         area_id: dataJson.area_id,
-        business_id: dataJson.business_id
+        business_id: dataJson.business_id,
+        audit: dataJson.audit
     };
 
     return insertRow(knex, 'bao_life', dbJson);
@@ -110,22 +115,41 @@ async function insertGalleryImages(knex, imageFilenamesArray, lifeId) {
 }
 
 async function processFile(knex, filename) {
-    const dataJson = await openFile(filename);
-    const rows = await insertInfo(knex, dataJson);
+    try {
+        const dataJson = await openFile(filename);
+        const rows = await insertInfo(knex, dataJson);
 
-    if (rows && rows.length) {
-        await Promise.all([
-            insertDetails(knex, dataJson.details, rows[0]),
-            insertGalleryImages(knex, dataJson.gallery, rows[0]),
-        ]);
+        if (rows && rows.length) {
+            await Promise.all([
+                insertDetails(knex, dataJson.details, rows[0]),
+                insertGalleryImages(knex, dataJson.gallery, rows[0]),
+            ]);
+        }
+    } catch (err) {
+        log.error(`Error encounter while processing ${ filename }: ${ JSON.stringify(err) }`);
     }
 }
 
 async function main() {
     dotenv.config();
-    log.setLevel(log.levels.DEBUG);
+    log.setLevel(process.env.LOG_LEVEL);
     const knex = await connectToDb();
-    await processFile(knex, 'data/example.json');
+    const readdirAsync = promisify(fs.readdir)
+
+    let files;
+
+    try {
+        log.info(`Scaning data directory ${ DATA_DIR }`);
+        files = await readdirAsync(DATA_DIR);
+        log.info(`Found ${files.length} data files.`);
+    } catch (err) {
+        return log.error('Unable to scan directory: ' + err);
+    }
+
+    await Promise.all(files.map(async (filename) => {
+        await processFile(knex, DATA_DIR + filename);
+    }));
+
     await knex.destroy();
 }
 

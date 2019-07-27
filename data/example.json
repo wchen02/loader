@@ -1,5 +1,5 @@
 {
-  "title": "",
+  "title": "Post Title",
   "text1": null,
   "text2": null,
   "text3": null,
@@ -28,5 +28,6 @@
   "area_id": 1,
   "business_id": 1,
   "urgent_date": "2019-07-26",
-  "top_date": "2019-07-26"
+  "top_date": "2019-07-26",
+  "audit": 1
 }
