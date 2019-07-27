@@ -83,7 +83,8 @@ async function insertInfo(knex, dataJson) {
         city_id: dataJson.city_id,
         area_id: dataJson.area_id,
         business_id: dataJson.business_id,
-        audit: dataJson.audit
+        audit: dataJson.audit,
+        user_id: dataJson.user_id,
     };
 
     return insertRow(knex, 'bao_life', dbJson);
