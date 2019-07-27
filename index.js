@@ -23,31 +23,32 @@ async function openFile(filename) {
 // }
 
 async function connectToDb() {
-    const connection = mysql.createConnection({
-        host     : process.env.DB_HOST,
-        user     : process.env.DB_USER,
-        password : process.env.DB_PASS,
-        database : process.env.DB_NAME
-    });
-
+    let knex;
     try {
         console.log(`Connecting to ${process.env.DB_NAME} at ${process.env.DB_HOST}`)
-        connection.connect();
+
+        knex = require('knex')({
+            client: 'mysql',
+            connection: {
+                host     : process.env.DB_HOST,
+                user     : process.env.DB_USER,
+                password : process.env.DB_PASS,
+                database : process.env.DB_NAME
+            }
+        });
     } catch (err) {
         console.error('error connecting: ' + err.stack);
         return;
     }
 
-    console.log('connected as id ' + connection.threadId);
-    return connection;
+    console.log('connected');
+    return knex;
 }
 
 async function main() {
     const dataJson = await openFile('data/example.json');
-    const connection = await connectToDb();
-    // const insertStatement = await getInsertStatement(dataJson);
-    // const isInserted = await insert(insertStatement);
-    connection.end();
+    const knex = await connectToDb();
+    await knex.destroy();
 }
 
 main();
