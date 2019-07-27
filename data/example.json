@@ -1,19 +1,19 @@
 {
   "title": "",
-  "text1": "",
-  "text2": "",
-  "text3": "",
-  "num1": "",
-  "num2": "",
-  "select1": "",
-  "select2": "",
-  "select3": "",
-  "select4": "",
-  "select5": "",
+  "text1": null,
+  "text2": null,
+  "text3": null,
+  "num1": null,
+  "num2": null,
+  "select1": null,
+  "select2": null,
+  "select3": null,
+  "select4": null,
+  "select5": null,
   "date": 1563692400,
   "details": "新装，独立出入，两房一厅。亮丽光猛，环境优雅整洁，购物交通方便，易趴车。$1480。\r 法拉盛。134街 / 58AV   电话： 212-971-4466。或 短信 谢谢！",
   "gallery": [
-    "downloads/http___c.dadi360.com_c_posts_list_2030337.page/3f339512-8682-4da5-a52a-4de02a6b7536.jpg"
+    "attaches/2030337/95815a96-05dc-49b0-b666-5ce9c54d3206.jpg"
   ],
   "longitude": "",
   "latitude": "",
@@ -26,5 +26,7 @@
   "cate_id": 47,
   "city_id": 1,
   "area_id": 1,
-  "business_id": 1
+  "business_id": 1,
+  "urgent_date": "2019-07-26",
+  "top_date": "2019-07-26"
 }
