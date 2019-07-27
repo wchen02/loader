@@ -1,6 +1,6 @@
 {
   "name": "loader",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Loads data from normalizer to database.",
   "main": "index.js",
   "scripts": {
