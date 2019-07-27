@@ -1,3 +1,21 @@
+## 1.0.0 (2019-07-27)
+
+##### Chores
+
+*  Git ignore data files ([821b6814](https://github.com/wchen02/loader/commit/821b6814ab3f682a490c0c644cda890a79791e51))
+
+##### Documentation Changes
+
+*  Prepare readme for a major release ([63ef62d0](https://github.com/wchen02/loader/commit/63ef62d0349a70ee94b0c4ef4a14d4d01a258120))
+
+##### New Features
+
+*  Add additional field "user_id" to the table ([ffa1039c](https://github.com/wchen02/loader/commit/ffa1039c681aa9fa37477ad6b15fbdc6b3bae4ad))
+
+##### Refactors
+
+*  Update gallery path ([83e597be](https://github.com/wchen02/loader/commit/83e597befff5da045132d9ee721623bc2fff3141))
+
 ### 0.1.0 (2019-07-27)
 
 ##### Chores
