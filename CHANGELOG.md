@@ -1,3 +1,13 @@
+### 1.1.0 (2019-08-13)
+
+##### New Features
+
+*  make loader into a library ([d4891140](https://github.com/wchen02/loader/commit/d4891140696842a9690862d9a8898fd64e4f1b59))
+
+##### Bug Fixes
+
+*  Update last_time to the same as create time ([45d167e0](https://github.com/wchen02/loader/commit/45d167e091135e91d45824592de62a61837ca802))
+
 ## 1.0.0 (2019-07-27)
 
 ##### Chores
