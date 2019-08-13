@@ -1,5 +1,4 @@
 const jsonfile = require('jsonfile');
-const dotenv = require('dotenv');
 const log = require('loglevel');
 const { promisify } = require('util')
 const fs = require('fs')
@@ -18,18 +17,18 @@ async function openFile(filename) {
     return dataJson;
 }
 
-async function connectToDb() {
+async function connectToDb(db) {
     let knex;
     try {
-        log.info(`Connecting to ${ process.env.DB_NAME } at ${ process.env.DB_HOST }`);
+        log.info(`Connecting to ${ db.database } at ${ db.host }`);
 
         knex = require('knex')({
             client: 'mysql',
             connection: {
-                host     : process.env.DB_HOST,
-                user     : process.env.DB_USER,
-                password : process.env.DB_PASS,
-                database : process.env.DB_NAME
+                host     : db.host,
+                user     : db.user,
+                password : db.password,
+                database : db.database
             }
         });
     } catch (err) {
@@ -132,10 +131,9 @@ async function processFile(knex, filename) {
     }
 }
 
-async function main() {
-    dotenv.config();
-    log.setLevel(process.env.LOG_LEVEL);
-    const knex = await connectToDb();
+async function run(options) {
+    log.setLevel(options.logLevel);
+    const knex = await connectToDb(options.db);
     const readdirAsync = promisify(fs.readdir)
 
     let files;
@@ -155,4 +153,7 @@ async function main() {
     await knex.destroy();
 }
 
-main();
+module.exports = {
+    run,
+    DATA_DIR
+};
