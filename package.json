@@ -2,7 +2,7 @@
   "name": "loader",
   "version": "1.3.0",
   "description": "Loads data from normalizer to database.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
