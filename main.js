@@ -10,7 +10,8 @@ async function main() {
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
-        }
+        },
+        dataDir: process.env.DATA_DIR,
     };
     loader.run(options);
 }

@@ -3,7 +3,7 @@ const log = require('loglevel');
 const { promisify } = require('util')
 const fs = require('fs')
 
-const DATA_DIR = 'data/';
+let DATA_DIR;
 
 async function openFile(filename) {
     log.info(`Reading ${ filename }`);
@@ -135,6 +135,7 @@ async function run(options) {
     log.setLevel(options.logLevel);
     const knex = await connectToDb(options.db);
     const readdirAsync = promisify(fs.readdir)
+    DATA_DIR = options.dataDir;
 
     let files;
 
