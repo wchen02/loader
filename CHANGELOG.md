@@ -1,3 +1,9 @@
+#### 1.3.1 (2019-08-16)
+
+##### Chores
+
+*  update index.js to be the main file ([e035bc63](https://github.com/wchen02/loader/commit/e035bc630daa2ebb2d77ec57852868e121eae080))
+
 ### 1.3.0 (2019-08-16)
 
 ##### New Features
