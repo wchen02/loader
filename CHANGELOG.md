@@ -1,3 +1,9 @@
+#### 1.3.2 (2019-08-16)
+
+##### Refactors
+
+*  rename data dir to normalized data dir ([9de94620](https://github.com/wchen02/loader/commit/9de946203129dca9e0a3e1ece577189a92daf2a8))
+
 #### 1.3.1 (2019-08-16)
 
 ##### Chores
