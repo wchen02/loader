@@ -1,3 +1,9 @@
+### 1.3.0 (2019-08-16)
+
+##### New Features
+
+*  Add getOptions into lib ([d0cdda96](https://github.com/wchen02/loader/commit/d0cdda962868fd9f08a57a8db1565124ba8a0e86))
+
 ### 1.2.0 (2019-08-16)
 
 ##### New Features
