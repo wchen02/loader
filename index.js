@@ -154,7 +154,20 @@ async function run(options) {
     await knex.destroy();
 }
 
+function getOptions(options) {
+    return {
+        logLevel: options.LOG_LEVEL,
+        db: {
+            host: options.DB_HOST,
+            user: options.DB_USER,
+            password: options.DB_PASS,
+            database: options.DB_NAME,
+        },
+        dataDir: options.NORMALIZED_DATA_DIR,
+    };
+}
+
 module.exports = {
     run,
-    DATA_DIR
+    getOptions
 };
