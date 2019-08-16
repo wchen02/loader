@@ -1,3 +1,9 @@
+### 1.2.0 (2019-08-16)
+
+##### New Features
+
+*  make directory configurable via ENV var ([06ac0ec0](https://github.com/wchen02/loader/commit/06ac0ec0b7aee40c1d02308d8d95ff5e0d6ba024))
+
 ### 1.1.0 (2019-08-13)
 
 ##### New Features
