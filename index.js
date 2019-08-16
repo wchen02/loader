@@ -3,8 +3,6 @@ const log = require('loglevel');
 const { promisify } = require('util')
 const fs = require('fs')
 
-let DATA_DIR;
-
 async function openFile(filename) {
     log.info(`Reading ${ filename }`);
     let dataJson; 
@@ -135,20 +133,20 @@ async function run(options) {
     log.setLevel(options.logLevel);
     const knex = await connectToDb(options.db);
     const readdirAsync = promisify(fs.readdir)
-    DATA_DIR = options.dataDir;
+    const dataDir = options.dataDir;
 
     let files;
 
     try {
-        log.info(`Scaning data directory ${ DATA_DIR }`);
-        files = await readdirAsync(DATA_DIR);
+        log.info(`Scaning data directory ${ dataDir }`);
+        files = await readdirAsync(dataDir);
         log.info(`Found ${files.length} data files.`);
     } catch (err) {
         return log.error('Unable to scan directory: ' + err);
     }
 
     await Promise.all(files.map(async (filename) => {
-        await processFile(knex, DATA_DIR + filename);
+        await processFile(knex, dataDir + filename);
     }));
 
     await knex.destroy();
