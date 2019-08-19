@@ -146,7 +146,7 @@ async function run(options) {
     }
 
     await Promise.all(files.map(async (filename) => {
-        await processFile(knex, dataDir + filename);
+        await processFile(knex, dataDir + '/' + filename);
     }));
 
     await knex.destroy();
