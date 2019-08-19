@@ -1,3 +1,9 @@
+#### 1.3.3 (2019-08-19)
+
+##### Refactors
+
+*  Refactor to allow dir env to work regardless if variable ends in '/' ([03e55a1f](https://github.com/wchen02/loader/commit/03e55a1f92db7da6b93bf7f7e77df65083c2d75b))
+
 #### 1.3.2 (2019-08-16)
 
 ##### Refactors
