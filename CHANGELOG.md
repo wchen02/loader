@@ -1,3 +1,9 @@
+#### 1.3.4 (2019-08-31)
+
+##### Chores
+
+*  Update packages ([906c69f7](https://github.com/wchen02/loader/commit/906c69f7045d12e85601e06c7ec12e7cdd8a9b08))
+
 #### 1.3.3 (2019-08-19)
 
 ##### Refactors
