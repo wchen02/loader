@@ -27,7 +27,7 @@
   "dependencies": {
     "dotenv": "^8.1.0",
     "jsonfile": "^5.0.0",
-    "knex": "^0.19.3",
+    "knex": "^0.19.5",
     "loglevel": "^1.6.3",
     "mysql": "^2.17.1"
   }
